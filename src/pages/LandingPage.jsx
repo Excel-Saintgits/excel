@@ -35,7 +35,7 @@ const Landingpage = () => {
       </div>
 
       {/* Row of images below the text that span from one end to the other */}
-      <div className="flex w-full mt-12 object-contain">
+      <div className="flex w-full mt-12 object-contain overflow-x-hidden">
         <img src={img1} alt="Image 1" className="flex-grow h-48 object-contain" />
         <img src={img2} alt="Image 2" className="flex-grow h-48 object-cover" />
         <img src={img3} alt="Image 3" className="flex-grow h-48 object-cover" />
