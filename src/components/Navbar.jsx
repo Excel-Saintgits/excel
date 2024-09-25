@@ -63,14 +63,14 @@ export default function Nav() {
   );
 
   return (
-    <Navbar className="mx-auto max-w-full py-4 px-4 lg:px-12 lg:py-6 bg-white">
+    <Navbar className="mx-auto max-w-full py-4 px-4 lg:px-12 lg:py-6 bg-[#0C9E8F1A] md:bg-white border-b-[#0C9E8F] border-b-2 w-full lg:w-7/12   border-r-0 border-l-0">
       <div className="container mx-auto flex items-center justify-center text-blue-gray-900">
         <div className="hidden lg:flex   ">{navList}</div>
 
         {/* Mobile Menu Icon */}
         <IconButton
           variant="text"
-          className="ml-auto h-8 w-8 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
@@ -92,10 +92,10 @@ export default function Nav() {
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
+              className="h-6 w-6 -mt-2"
               fill="black"
               stroke="black"
-              strokeWidth={2}
+              strokeWidth={3}
             >
               <path
                 strokeLinecap="round"
