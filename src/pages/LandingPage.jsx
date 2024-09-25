@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import Nav from '../components/Navbar';
 import excelLogo from '../assets/excel 1.png'; // Adjust the import path as needed
 
 // Importing the 5 images
@@ -13,7 +13,7 @@ import image6 from '../assets/6.png'; // Import the new image for the "Get to Kn
 const Landingpage = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      <Nav />
 
       {/* Logo and text aligned in the same line */}
       <div className="flex items-center justify-start mt-4 md:mt-6 ml-56 md:ml-80"> {/* Reduced left margin */}
