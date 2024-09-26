@@ -1,116 +1,74 @@
-import React from "react";
-import {
-  Navbar,
-  MobileNav,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
+import { useState } from 'react';
+import PropTypes from 'prop-types'; // Import prop-types
+import { Menu, X } from 'lucide-react';
+import excelLogo from '../assets/excel 2 (1).png'; // Importing the image
 
-export default function Nav() {
-  const [openNav, setOpenNav] = React.useState(false);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false)
-    );
-  }, []);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  const navList = (
-    <ul className="flex flex-col items-center  md:flex-row md:items-center p-4">
-      {/* About */}
-      <li className="flex flex-row px-10 py-5">
-        <span className="text-[#35374E] font-extrabold text-base">ABOU</span>
-        <span className="bg-[#0C9E8F] w-6 h-6 relative -top-1 -left-1 rounded-full text-white flex justify-center items-center opacity-70">
-          <span className="relative top-1 -left-1 font-extrabold text-base">
-            T
-          </span>
-        </span>
-      </li>
-
-      {/* Events */}
-      <li className="flex flex-row px-10 py-5">
-        <span className="text-[#35374E] font-extrabold text-base">EVENT</span>
-        <span className="bg-[#0C9E8F] w-6 h-6 relative -top-1 -left-1 rounded-full text-white flex justify-center items-center opacity-70">
-          <span className="relative top-1 -left-1 font-extrabold text-base">
-            S
-          </span>
-        </span>
-      </li>
-
-      {/* Gallery */}
-      <li className="flex flex-row px-10 py-5">
-        <span className="text-[#35374E] font-extrabold text-base">GALLER</span>
-        <span className="bg-[#0C9E8F] w-6 h-6 relative -top-1 -left-1 rounded-full text-white flex justify-center items-center opacity-70">
-          <span className="relative top-1 -left-1 font-extrabold text-base">
-            Y
-          </span>
-        </span>
-      </li>
-
-      {/* Contact Us */}
-      <li className="flex flex-row px-10 py-5">
-        <span className="text-[#35374E] font-extrabold text-base">
-          CONTACT U
-        </span>
-        <span className="bg-[#0C9E8F] w-6 h-6 relative -top-1 -left-1 rounded-full text-white flex justify-center items-center opacity-70">
-          <span className="relative top-1 -left-1 font-extrabold text-base">
-            S
-          </span>
-        </span>
-      </li>
-    </ul>
+  // MenuItem component with props validation
+  const MenuItem = ({ text, letter }) => (
+    <li className="flex items-center">
+      <span className="text-[#35374E]">{text}</span>
+      <span className="bg-[#0C9E8F] w-8 h-8 rounded-full text-white flex justify-center items-center opacity-70">
+        {letter}
+      </span>
+    </li>
   );
+
+  // Add prop-types for props validation
+  MenuItem.propTypes = {
+    text: PropTypes.string.isRequired,
+    letter: PropTypes.string.isRequired,
+  };
 
   return (
-    <Navbar className="mx-auto max-w-full py-4 px-4 lg:px-12 lg:py-6 bg-[#0C9E8F1A] md:bg-white border-b-[#0C9E8F] border-b-2 w-full lg:w-7/12   border-r-0 border-l-0">
-      <div className="container mx-auto flex items-center justify-center text-blue-gray-900">
-        <div className="hidden lg:flex   ">{navList}</div>
-
-        {/* Mobile Menu Icon */}
-        <IconButton
-          variant="text"
-          className="ml-auto text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-          ripple={false}
-          onClick={() => setOpenNav(!openNav)}
-        >
-          {openNav ? (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              className="h-6 w-6"
-              viewBox="0 0 24 24"
-              stroke="black"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+    <nav className="bg-white p-8 relative">
+      <div className="container mx-auto flex justify-between items-center md:justify-center">
+        {/* Logo for mobile with increased size */}
+        <img 
+          src={excelLogo} // Using the imported image
+          alt="Excel Logo" 
+          className="h-10 w-10 md:hidden"  // Increased size of logo for mobile (h-20 w-20)
+        />
+        
+        {/* Centered menu items for desktop */}
+        <ul className="hidden md:flex space-x-32 text-lg font-semibold items-center">
+          <MenuItem text="ABOU" letter="T" />
+          <MenuItem text="EVENT" letter="S" />
+          <MenuItem text="GALLER" letter="Y" />
+          <MenuItem text="CONTACT U" letter="S" />
+        </ul>
+        
+        {/* Hamburger menu for mobile */}
+        <button onClick={toggleMenu} className="md:hidden">
+          {isMenuOpen ? (
+            <X className="h-10 w-10 text-[#35374E]" />
           ) : (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 -mt-2"
-              fill="black"
-              stroke="black"
-              strokeWidth={3}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+            <Menu className="h-10 w-10 text-[#35374E]" />
           )}
-        </IconButton>
+        </button>
       </div>
 
-      {/* Mobile Nav */}
-      <MobileNav open={openNav}>
-        <div className="container mx-auto align-middle ">{navList}</div>
-      </MobileNav>
-    </Navbar>
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md">
+          <ul className="flex flex-col items-center space-y-4 py-4 text-lg font-semibold">
+            <MenuItem text="ABOU" letter="T" />
+            <MenuItem text="EVENT" letter="S" />
+            <MenuItem text="GALLER" letter="Y" />
+            <MenuItem text="CONTACT U" letter="S" />
+          </ul>
+        </div>
+      )}
+
+      <div className="container mx-auto border-t-2 border-[#0C9E8F] opacity-50 mt-8 w-3/4"></div>
+    </nav>
   );
-}
+};
+
+export default Navbar;
