@@ -1,50 +1,66 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types'; // Import prop-types
+import PropTypes from 'prop-types';
 import { Menu, X } from 'lucide-react';
-import excelLogo from '../assets/excel 2 (1).png'; // Importing the image
+import { Link } from 'react-scroll';
+import excelLogo from '../assets/excel 2 (1).png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // MenuItem component with props validation
-  const MenuItem = ({ text, letter }) => (
-    <li className="flex items-center">
-      <span className="text-[#35374E]">{text}</span>
-      <span className="bg-[#0C9E8F] w-8 h-8 rounded-full text-white flex justify-center items-center opacity-70">
-        {letter}
-      </span>
+  const MenuItem = ({ text, letter, to }) => (
+    <li className="flex items-center cursor-pointer">
+      <Link
+        to={to}
+        smooth={true}
+        duration={500}
+        onClick={() => setActiveItem(to)}
+        className="flex items-center"
+      >
+        <span className="text-[#35374E]">{text}</span>
+        <span
+          className={`w-8 h-8 rounded-full text-white flex justify-center items-center ${
+            activeItem === to ? 'bg-[#35374E]' : 'bg-[#0C9E8F] opacity-70'
+          }`}
+        >
+          {letter}
+        </span>
+      </Link>
     </li>
   );
 
-  // Add prop-types for props validation
   MenuItem.propTypes = {
     text: PropTypes.string.isRequired,
     letter: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired,
   };
+
+  const menuItems = [
+    { text: "ABOU", letter: "T", to: "about" },
+    { text: "EVENT", letter: "S", to: "events" },
+    { text: "GALLER", letter: "Y", to: "gallery" },
+    { text: "CONTACT U", letter: "S", to: "contact-us" },
+  ];
 
   return (
     <nav className="bg-white p-8 relative">
       <div className="container mx-auto flex justify-between items-center md:justify-center">
-        {/* Logo for mobile with increased size */}
         <img 
-          src={excelLogo} // Using the imported image
+          src={excelLogo}
           alt="Excel Logo" 
-          className="h-10 w-10 md:hidden"  // Increased size of logo for mobile (h-20 w-20)
+          className="h-10 w-10 md:hidden"
         />
         
-        {/* Centered menu items for desktop */}
         <ul className="hidden md:flex space-x-32 text-lg font-semibold items-center">
-          <MenuItem text="ABOU" letter="T" />
-          <MenuItem text="EVENT" letter="S" />
-          <MenuItem text="GALLER" letter="Y" />
-          <MenuItem text="CONTACT U" letter="S" />
+          {menuItems.map((item) => (
+            <MenuItem key={item.to} {...item} />
+          ))}
         </ul>
         
-        {/* Hamburger menu for mobile */}
         <button onClick={toggleMenu} className="md:hidden">
           {isMenuOpen ? (
             <X className="h-10 w-10 text-[#35374E]" />
@@ -54,14 +70,12 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md">
           <ul className="flex flex-col items-center space-y-4 py-4 text-lg font-semibold">
-            <MenuItem text="ABOU" letter="T" />
-            <MenuItem text="EVENT" letter="S" />
-            <MenuItem text="GALLER" letter="Y" />
-            <MenuItem text="CONTACT U" letter="S" />
+            {menuItems.map((item) => (
+              <MenuItem key={item.to} {...item} />
+            ))}
           </ul>
         </div>
       )}
