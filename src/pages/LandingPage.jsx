@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import Nav from "../components/Navbar";
-import Footer from "../components/Footer";  // Import Footer
+import Footer from "../components/footer";  // Import Footer
 import excelLogo from "../assets/excel 2 (1).png"; // Import Excel logo
 import { motion } from 'framer-motion'; // For animations
 
@@ -35,7 +35,7 @@ const Landingpage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Nav />
+    
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4 md:mt-6">
         <img
@@ -202,8 +202,6 @@ const Landingpage = () => {
       </div>
       <hr className="border-t-2 border-gray-200 mt-6 mb-6" />
 
-      {/* Footer Component */}
-      <Footer />  {/* Add the Footer here */}
     </div>
   );
 };
