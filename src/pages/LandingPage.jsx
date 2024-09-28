@@ -1,11 +1,10 @@
-// Landingpage.jsx
 import { useState, useRef, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PhotoCarousel from '../components/Carousel';
-import ScrollUpIndicator from '../components/ScrollUpIndicator'; // Import the ScrollUpIndicator component
+import ScrollUpIndicator from '../components/ScrollUpIndicator';
 import excelLogo from '../assets/excel 2 (1).png';
 import img1 from '../assets/1.png';
 import img2 from '../assets/2.png';
@@ -13,22 +12,23 @@ import img3 from '../assets/3.png';
 import img4 from '../assets/4.png';
 import img5 from '../assets/5.png';
 import image6 from '../assets/6.png';
+import EventsSection from '../components/EventsSection';
+import events from '../components/events.json'; // Import the events data from JSON
 
 const Landingpage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef(null);
   const iframeRef = useRef(null);
-  const location = useLocation(); // Get current location
+  const location = useLocation();
 
   useEffect(() => {
-    // Scroll to section if there's a hash in the URL
     if (location.hash) {
       const targetId = location.hash.replace('#', '');
       scroller.scrollTo(targetId, {
         duration: 800,
         delay: 0,
         smooth: 'easeInOutQuart',
-        offset: -80, // Adjust this offset based on your navbar height
+        offset: -80,
       });
     }
   }, [location]);
@@ -50,7 +50,7 @@ const Landingpage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0C9E8F1A]">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-4 md:mt-6">
         <img
@@ -118,9 +118,9 @@ const Landingpage = () => {
       </div>
 
       {/* Get to Know Us Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between bg-[#0C9E8F1A] rounded-lg p-8 mx-auto mt-12 w-full max-w-5xl">
+      <div className="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg p-8 mx-auto mt-12 w-full max-w-5xl">
         <div className="text-left w-full md:w-1/2">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <h3 className="text-3xl font-bold mb-4">
             <span className="text-black">GET TO </span>
             <span className="text-[#0C9E8F]">KNOW US</span>
           </h3>
@@ -142,23 +142,38 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <hr className="border-t-2 border-gray-200 mt-12 mb-20" />
+      <hr className="border-t-2 border-gray-200 mt-20 mb-20" />
 
-      {/* Events Section */}
-      <div id="events" className="py-12">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            <span className="text-[#35374E]">Our</span>{' '}
-            <span className="text-[#0C9E8F]">Events</span>
-          </h2>
-          <p className="text-center text-gray-600 mb-8">
-            Details about upcoming and past events will be displayed here.
-          </p>
-          {/* Add event details or components here */}
+      {/* OUR EVENTS Section */}
+      <div id="events" className="text-center mt-20 mb-20">
+        <h2 className="text-3xl font-bold text-center mb-4 flex items-center justify-center">
+          <Link to="/events" className="no-underline flex items-center">
+            <span className="text-[#35374E]">OUR</span>
+            <span className="text-[#0C9E8F]"> EVENTS </span>
+            <motion.span
+              style={{
+                display: 'inline-block',
+                marginLeft: '8px',
+                fontSize: '30px',
+                cursor: 'pointer',
+              }}
+              className="rotate-arrow"
+              animate={{ rotate: 0 }}
+              whileHover={{ rotate: -30 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              ➔
+            </motion.span>
+          </Link>
+        </h2>
+        <div className="py-12 px-4">
+          <div className="relative h-[350px] w-full">
+            <EventsSection events={events} /> {/* Pass events as a prop */}
+          </div>
         </div>
       </div>
 
-      <hr className="border-t-2 border-gray-200 mt-12 mb-20" />
+      <hr className="border-t-2 border-gray-200 mt-20 mb-20" />
 
       {/* Gallery Section */}
       <div id="gallery" className="py-12 bg-[#0C9E8F1A]">
@@ -197,7 +212,7 @@ const Landingpage = () => {
       {/* Contact Us Section */}
       <div
         id="contact-us"
-        className="flex flex-col md:flex-row justify-between items-center p-8 mx-auto max-w-5xl"
+        className="flex flex-col md:flex-row justify-between items-center p-8 mx-auto max-w-5xl bg-white"
       >
         <div className="w-full md:w-1/2">
           <h1 className="text-2xl sm:text-4xl font-bold text-[#0C9E8F] mb-8 font-exo-2 text-center md:text-left">
@@ -274,13 +289,17 @@ const Landingpage = () => {
           ></iframe>
         </div>
         <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-          <img src={excelLogo} alt="Excel Logo" className="w-64 h-64" />
-        </div>
+  <img
+    src={excelLogo}
+    alt="Excel Logo"
+    className="w-32 h-32 md:w-64 md:h-64" // Smaller size for mobile, larger for desktop
+  />
+</div>
+
       </div>
 
       <hr className="border-t-2 border-gray-200 mt-6 mb-6" />
 
-      {/* Include the ScrollUpIndicator component */}
       <ScrollUpIndicator />
     </div>
   );

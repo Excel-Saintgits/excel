@@ -1,0 +1,60 @@
+{
+  "aboutDescription": [
+    {
+      "paragraph": "Welcome to EXCEL, the Exquisite Computer Engineers League, a vibrant group of Computer Engineering students at Saintgits College of Engineering. We are dedicated to fostering technical excellence, innovation, and community engagement. Our activities range from hosting national seminars, inter-college competitions, and hands-on workshops, to making a difference through social outreach."
+    },
+    {
+      "paragraph": "Under the EXCEL banner, we have conducted programs like the PC Hardware and Networking workshop, in collaboration with Corona Infotech, Kottayam, for 85 students, and a Personality Development program led by TIME, Trivandrum. Alongside these technical endeavors, we take pride in our social responsibility, organizing blood donation drives, fundraisers, and various charitable activities to support those in need."
+    },
+    {
+      "paragraph": "We also spearhead Jyothirgamaya, a community-driven initiative of the Computer Science and Engineering Department. Every year, our BTech students, under the guidance of faculty, conduct training programs for school children. These workshops introduce young minds to IT-related topics, enhancing their academic performance and sparking their interest in Science and Engineering, creating future innovators."
+    }
+  ],
+  "coreCommittee": [
+    {
+      "name": "Arundhati R",
+      "role": "Chairperson"
+    },
+    {
+      "name": "Shawn Anish",
+      "role": "Vice-Chairperson"
+    },
+    {
+      "name": "Rahul Zachariah",
+      "role": "General Secretary"
+    },
+    {
+      "name": "Gopikrishnan B",
+      "role": "Treasurer"
+    }
+  ],
+  "committeeMembers": [
+    {
+      "name": "Shawn Anish"
+    },
+    {
+      "name": "Rahul Zachariah"
+    },
+    {
+      "name": "Gopikrishnan B"
+    },
+    {
+      "name": "Shawn Anish"
+    },
+    {
+      "name": "Rahul Zachariah"
+    },
+    {
+      "name": "Gopikrishnan B"
+    },
+    {
+      "name": "Shawn Anish"
+    },
+    {
+      "name": "Rahul Zachariah"
+    },
+    {
+      "name": "Gopikrishnan B"
+    }
+  ]
+}

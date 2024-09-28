@@ -1,4 +1,3 @@
-// Navbar.jsx
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Menu, X } from 'lucide-react';
@@ -17,26 +16,46 @@ const Navbar = () => {
 
   const isLandingPage = location.pathname === '/';
 
-  const MenuItem = ({ text, letter, to }) => (
+  const MenuItem = ({ text, letter, to, external }) => (
     <li className="flex items-center cursor-pointer mx-16">
-      <HashLink
-        smooth
-        to={to}
-        onClick={() => {
-          setActiveItem(to);
-          setIsMenuOpen(false); // Close menu on mobile after click
-        }}
-        className="flex items-center"
-      >
-        <span className="text-[#35374E]">{text}</span>
-        <span
-          className={`w-8 h-8 rounded-full text-white flex justify-center items-center ${
-            activeItem === to ? 'bg-[#35374E]' : 'bg-[#0C9E8F] opacity-70'
-          }`}
+      {external ? (
+        <Link
+          to={to}
+          onClick={() => {
+            setActiveItem(to);
+            setIsMenuOpen(false); // Close menu on mobile after click
+          }}
+          className="flex items-center"
         >
-          {letter}
-        </span>
-      </HashLink>
+          <span className="text-[#35374E]">{text}</span>
+          <span
+            className={`w-8 h-8 rounded-full text-white flex justify-center items-center ${
+              activeItem === to ? 'bg-[#35374E]' : 'bg-[#0C9E8F] opacity-70'
+            }`}
+          >
+            {letter}
+          </span>
+        </Link>
+      ) : (
+        <HashLink
+          smooth
+          to={to}
+          onClick={() => {
+            setActiveItem(to);
+            setIsMenuOpen(false); // Close menu on mobile after click
+          }}
+          className="flex items-center"
+        >
+          <span className="text-[#35374E]">{text}</span>
+          <span
+            className={`w-8 h-8 rounded-full text-white flex justify-center items-center ${
+              activeItem === to ? 'bg-[#35374E]' : 'bg-[#0C9E8F] opacity-70'
+            }`}
+          >
+            {letter}
+          </span>
+        </HashLink>
+      )}
     </li>
   );
 
@@ -44,17 +63,18 @@ const Navbar = () => {
     text: PropTypes.string.isRequired,
     letter: PropTypes.string.isRequired,
     to: PropTypes.string.isRequired,
+    external: PropTypes.bool // external determines if we navigate using Link (for other pages)
   };
 
   // Split the menu items for left and right
   const leftMenuItems = [
-    { text: 'ABOU', letter: 'T', to: '/#about' },
-    { text: 'EVENT', letter: 'S', to: '/#events' },
+    { text: 'ABOUT', letter: 'T', to: '/about', external: true }, // Direct link to the About page
+    { text: 'EVENT', letter: 'S', to: '/#events', external: false } // Scroll to 'events' section in Landingpage
   ];
 
   const rightMenuItems = [
-    { text: 'GALLER', letter: 'Y', to: '/#gallery' },
-    { text: 'CONTACT U', letter: 'S', to: '/#contact-us' },
+    { text: 'GALLER', letter: 'Y', to: '/#gallery', external: false },
+    { text: 'CONTACT U', letter: 'S', to: '/#contact-us', external: false }
   ];
 
   return (
