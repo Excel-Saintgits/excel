@@ -24,6 +24,14 @@ const data = {
       { name: "Gopikrishnan B" },
     ],
   },
+  faculty: {
+    title: "Faculty Incharge",
+    members: [
+      { name: "Shawn Anish", role:"sdfsdf" },
+      { name: "Rahul Zachariah", role:"sdfsdf"  },
+      { name: "Gopikrishnan B" , role:"sdfsdf" },
+    ],
+  },
 };
 
 const AboutUs = () => {
@@ -101,7 +109,27 @@ const AboutUs = () => {
           )}
         </div>
       </section>
-
+      <section className="mb-12 items-center flex flex-col justify-center p-12 mt-10">
+        <h2 className="text-3xl md:text-5xl font-bold text-green-600 text-center">
+          Faculty{" "}
+          <span className="text-3xl md:text-5xl font-bold text-black">
+            Incharge
+          </span>
+        </h2>
+      <div className=" mt-6 flex flex-col md:flex-row ">
+          {data.coreCommittee.members.map((member, index) =>
+            member.role !== "Chairperson" ? (
+              <div key={index} className="flex flex-col items-center px-14">
+                <p className="text-gray-500 mb-5">{member.role}</p>
+                <div className="w-28 h-28 bg-gray-300 rounded-full mb-2  border-green-600 border-2"></div>
+                <p className="text-xl font-semibold mt-4">{member.name}</p>
+              </div>
+            ) : (
+              <></>
+            )
+          )}
+        </div>
+        </section>
       {/* Committee Section */}
       <section className="mb-8 ">
         <h2 className="text-3xl md:text-5xl font-bold text-green-600 text-center">
