@@ -13,48 +13,90 @@
   "coreCommittee": [
     {
       "name": "Arundhati R",
-      "role": "Chairperson"
+      "role": "Chairperson",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
       "name": "Shawn Anish",
-      "role": "Vice-Chairperson"
+      "role": "Vice-Chairperson",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
       "name": "Rahul Zachariah",
-      "role": "General Secretary"
+      "role": "General Secretary",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
       "name": "Gopikrishnan B",
-      "role": "Treasurer"
+      "role": "Treasurer",
+      "profileImage": "src/assets/profile.jpeg"
     }
   ],
   "committeeMembers": [
     {
-      "name": "Shawn Anish"
+      "name": "Shawn Anish",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Rahul Zachariah"
+      "name": "Rahul Zachariah",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Gopikrishnan B"
+      "name": "Gopikrishnan B",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Shawn Anish"
+      "name": "Shawn Anish",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Rahul Zachariah"
+      "name": "Rahul Zachariah",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Gopikrishnan B"
+      "name": "Gopikrishnan B",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Shawn Anish"
+      "name": "Shawn Anish",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Rahul Zachariah"
+      "name": "Rahul Zachariah",
+      "profileImage": "src/assets/profile.jpeg"
     },
     {
-      "name": "Gopikrishnan B"
+      "name": "Gopikrishnan B",
+      "profileImage": "src/assets/profile.jpeg"
+    }
+  ],
+  "facultyInCharge": [
+    {
+      "name": "Er. Hari M",
+      "role": "Faculty In Charge",
+      "profileImage": "src/assets/profile.jpeg"
+    },
+    {
+      "name": "Er. Renju Rachel Varghese",
+      "role": "Faculty In Charge",
+      "profileImage": "src/assets/profile.jpeg"
+    }
+  ],
+  "websiteTeam": [
+    {
+      "name": "Ashish George",
+      "role": "Website Team",
+      "profileImage": "src/assets/profile.jpeg"
+    },
+    {
+      "name": "Allen George Biji",
+      "role": "Website Team",
+      "profileImage": "src/assets/profile.jpeg"
+    },
+    {
+      "name": "Fredy Somy",
+      "role": "Website Team",
+      "profileImage": "src/assets/profile.jpeg"
     }
   ]
 }

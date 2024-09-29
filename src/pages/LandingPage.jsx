@@ -117,30 +117,34 @@ const Landingpage = () => {
         </p>
       </div>
 
-      {/* Get to Know Us Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between bg-white rounded-lg p-8 mx-auto mt-12 w-full max-w-5xl">
-        <div className="text-left w-full md:w-1/2">
-          <h3 className="text-3xl font-bold mb-4">
-            <span className="text-black">GET TO </span>
-            <span className="text-[#0C9E8F]">KNOW US</span>
-          </h3>
-          <p className="text-black leading-relaxed text-justify text-sm md:text-base">
-            Welcome to EXCEL, the Exquisite Computer Engineers League, a vibrant
-            group of Computer Engineering students at Saintgits College of
-            Engineering. We are dedicated to fostering technical excellence,
-            innovation, and community engagement. Our activities range from
-            hosting national seminars, inter-college competitions, and hands-on
-            workshops, to making a difference through social outreach.
-          </p>
-        </div>
-        <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-          <img
-            src={image6}
-            alt="Get to Know Us"
-            className="w-[250px] h-[250px] md:w-[340px] md:h-[350px] object-contain"
-          />
-        </div>
-      </div>
+     {/* Get to Know Us Section */}
+     <h3 className="text-3xl font-bold mb-4 text-center mt-20">
+  <span className="text-black">GET TO </span>
+  <span className="text-[#0C9E8F]">KNOW US</span>
+</h3>
+<div className="flex flex-col md:flex-row md:space-x-8 items-center md:items-start justify-center md:justify-between bg-white rounded-lg px-8 py-8 mx-auto mt-4 w-full max-w-5xl">
+  <div className="text-left w-full md:w-1/2">
+    <p className="text-black leading-relaxed text-justify text-sm md:text-base">
+      Welcome to EXCEL, the Exquisite Computer Engineers League, a vibrant
+      group of Computer Engineering students at Saintgits College of
+      Engineering. We are dedicated to fostering technical excellence,
+      innovation, and community engagement. Our activities range from
+      hosting national seminars, inter-college competitions, and hands-on
+      workshops, to making a difference through social outreach.
+    </p>
+  </div>
+  <div className="w-full md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
+    <img
+      src={image6}
+      alt="Get to Know Us"
+      className="w-[300px] h-[300px] md:w-[340px] md:h-[340px] object-cover rounded-full"
+    />
+  </div>
+</div>
+
+
+
+
 
       <hr className="border-t-2 border-gray-200 mt-20 mb-20" />
 
