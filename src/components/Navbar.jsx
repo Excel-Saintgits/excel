@@ -69,11 +69,11 @@ const Navbar = () => {
   // Split the menu items for left and right
   const leftMenuItems = [
     { text: 'ABOUT', letter: 'T', to: '/about', external: true }, // Direct link to the About page
-    { text: 'EVENT', letter: 'S', to: '/#events', external: false } // Scroll to 'events' section in Landingpage
+    { text: 'EVENT', letter: 'S', to: '/events', external: false } // Scroll to 'events' section in Landingpage
   ];
 
   const rightMenuItems = [
-    { text: 'GALLER', letter: 'Y', to: '/#gallery', external: false },
+    { text: 'GALLER', letter: 'Y', to: '/gallery', external: false },
     { text: 'CONTACT U', letter: 'S', to: '/#contact-us', external: false }
   ];
 
