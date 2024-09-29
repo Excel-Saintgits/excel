@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "url": "https://picsum.photos/id/1018/1000/600",
+    "alt": "Nature Landscape"
+  },
+  {
+    "id": 2,
+    "url": "https://picsum.photos/id/1015/1000/600",
+    "alt": "Mountain View"
+  },
+  {
+    "id": 3,
+    "url": "https://picsum.photos/id/1019/1000/600",
+    "alt": "Forest Scene"
+  },
+  {
+    "id": 4,
+    "url": "https://picsum.photos/id/1021/1000/600",
+    "alt": "Lake View"
+  },
+  {
+    "id": 5,
+    "url": "https://picsum.photos/id/1022/1000/600",
+    "alt": "Northern Lights"
+  },
+  {
+    "id": 6,
+    "url": "https://picsum.photos/id/1023/1000/600",
+    "alt": "Waterfall"
+  },
+  {
+    "id": 7,
+    "url": "https://picsum.photos/id/1024/1000/600",
+    "alt": "Misty Forest"
+  },
+  {
+    "id": 8,
+    "url": "https://picsum.photos/id/1025/1000/600",
+    "alt": "Desert Landscape"
+  }
+]
